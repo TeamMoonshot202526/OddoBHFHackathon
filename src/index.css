@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ODDO BHF Brand Colors */
+    --background: 210 20% 98%;
+    --foreground: 213 37% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 37% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 37% 14%;
+
+    /* Deep Navy Primary */
+    --primary: 213 72% 14%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Teal Accent */
+    --accent: 180 100% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 213 37% 14%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 213 15% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 180 100% 36%;
+
+    --radius: 0.5rem;
+
+    /* Mode Colors */
+    --early-alert: 43 96% 56%;
+    --early-alert-foreground: 0 0% 0%;
+    --early-alert-muted: 43 96% 92%;
+    
+    --critical-alert: 0 91% 71%;
+    --critical-alert-foreground: 0 0% 0%;
+    --critical-alert-muted: 0 91% 92%;
+    
+    --learning: 48 96% 77%;
+    --learning-foreground: 0 0% 0%;
+    --learning-muted: 48 96% 92%;
+    
+    --alpha: 142 71% 45%;
+    --alpha-foreground: 0 0% 100%;
+    --alpha-muted: 142 71% 95%;
+
+    /* Persona Colors */
+    --hedge-fund: 262 83% 58%;
+    --asset-manager: 199 89% 48%;
+    --pension-fund: 142 71% 45%;
+    --family-office: 38 92% 50%;
+    --corporate-treasury: 213 37% 45%;
+
+    /* Sidebar */
+    --sidebar-background: 213 72% 14%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 180 100% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 60% 22%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 213 50% 25%;
+    --sidebar-ring: 180 100% 36%;
+  }
+
+  .dark {
+    --background: 213 37% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 213 37% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 213 37% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 180 100% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 180 100% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 213 37% 18%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 213 37% 18%;
+    --muted-foreground: 210 15% 60%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 37% 22%;
+    --input: 213 37% 22%;
+    --ring: 180 100% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  /* ODDO BHF Heading Typography */
+  h1 {
+    @apply font-serif font-semibold tracking-tight;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply font-serif font-semibold;
+    font-size: 1.375rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply font-serif font-medium;
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  h4, h5, h6 {
+    @apply font-sans font-semibold;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  /* Body text refinements */
+  p {
+    @apply text-foreground;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  /* Small text - labels, captions */
+  small, .text-sm {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  /* Links */
+  a {
+    @apply text-accent transition-colors;
+  }
+
+  a:hover {
+    @apply text-accent/80;
+  }
+
+  /* Labels and form elements */
+  label {
+    @apply font-sans font-medium text-foreground;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Buttons inherit sans */
+  button {
+    @apply font-sans;
+    letter-spacing: 0.02em;
+  }
+
+  /* Tables */
+  th {
+    @apply font-sans font-semibold;
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  td {
+    @apply font-sans;
+    font-size: 0.875rem;
+  }
+}
+
+@layer components {
+  .mode-badge-early-alert {
+    @apply bg-early-alert text-early-alert-foreground;
+  }
+  
+  .mode-badge-critical-alert {
+    @apply bg-critical-alert text-critical-alert-foreground;
+  }
+  
+  .mode-badge-learning {
+    @apply bg-learning text-learning-foreground;
+  }
+  
+  .mode-badge-alpha {
+    @apply bg-alpha text-alpha-foreground;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-accent/30;
+  }
+
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sidebar-foreground/80 hover:text-sidebar-foreground hover:bg-sidebar-accent;
+  }
+
+  .sidebar-nav-item-active {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  .stat-card {
+    @apply bg-card rounded-xl border p-4 shadow-sm;
+  }
+
+  .engagement-card {
+    @apply bg-card rounded-lg border p-3 shadow-sm cursor-pointer transition-all hover:shadow-md hover:border-accent/40;
+  }
+
+  .confidence-bar {
+    @apply h-2 rounded-full bg-muted overflow-hidden;
+  }
+
+  .confidence-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+}
